@@ -19,7 +19,13 @@ export default class Home extends Component {
         { name: "london" },
         { name: "hanoi" },
         { name: "saigon" },
-        { name: "saigon" }
+        // { name: "Istanbul" },
+        // { name: "Danang" },
+        // { name: "tokyo" },
+        // { name: "karachi" },
+        // { name: "seoul" },
+        // { name: "cairo" },
+        
       ]
     };
   }

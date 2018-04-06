@@ -51,7 +51,7 @@ export default class Detail extends Component {
     return (
       <View>
         <Text>itemId: {this.state.cityName}</Text>
-        <Text>itemId: {this.state.weather.temp - 273}</Text>
+        <Text>itemId:{parseInt(this.state.weather.temp - 273)}</Text>
       </View>
     );
   }
