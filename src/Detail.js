@@ -15,6 +15,7 @@ export default class Detail extends Component {
       isLoading: true
      };
   }
+
   componentDidMount() {
     const { params } = this.props.navigation.state;
     const cityNameOBJ = params ? params.data : null;
@@ -50,7 +51,7 @@ export default class Detail extends Component {
     return (
       <View>
         <Text>itemId: {this.state.cityName}</Text>
-        <Text>itemId: {this.state.weather.temp}</Text>
+        <Text>itemId: {this.state.weather.temp - 273}</Text>
       </View>
     );
   }

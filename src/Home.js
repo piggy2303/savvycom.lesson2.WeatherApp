@@ -26,7 +26,7 @@ export default class Home extends Component {
   static navigationOptions = {
     header: null
   };
-
+  
 
 
   render() {
@@ -45,7 +45,7 @@ export default class Home extends Component {
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate("Detail", { data : item })}
             >
-              <HomeItem name={item.name} />
+              <HomeItem cityName={item.name} />
             </TouchableOpacity>
           )}
           keyExtractor={(item, index) => index}
