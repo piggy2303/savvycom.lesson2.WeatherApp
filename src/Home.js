@@ -16,11 +16,15 @@ export default class Home extends Component {
     super(props);
     this.state = {
       cities: [
+        { name: "singapore" },
+        { name: "tokyo" },
+        { name: "cairo" },
+        { name: "toronto" },
         { name: "London" },
         { name: "Hanoi" },
         { name: "Saigon" },
         { name: "Istanbul" },
-        { name: "Danang" }
+        { name: "Danang" },
       ]
     };
   }

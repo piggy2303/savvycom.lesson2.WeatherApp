@@ -3,19 +3,20 @@ import React, {StyleSheet} from 'react-native'
 const styles = StyleSheet.create({
     View_Main: {
         flex: 1,
-        backgroundColor: "rgb(21,101,192)"
+        backgroundColor: "rgb(129,212,250)"
 
     },
     Touch_main:{
         flex: 1,
-        backgroundColor: "rgb(236,240,241)",
-        marginTop: 10,
-        marginLeft: 10,
-        marginRight: 10,
-        height: 70,
-        padding: 20,
-        borderRadius: 8,
+        backgroundColor: "rgb(33,150,243)",
 
+        marginTop: 7,
+        marginLeft: 5,
+        marginRight: 7,
+
+        height: 80,
+        padding: 10,
+        borderRadius: 5,
         shadowColor: "rgb(79,195,247)",
         shadowRadius: 3,
         shadowOpacity: 1,
