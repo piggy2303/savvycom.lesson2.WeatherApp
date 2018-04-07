@@ -16,24 +16,17 @@ export default class Home extends Component {
     super(props);
     this.state = {
       cities: [
-        { name: "london" },
-        { name: "hanoi" },
-        { name: "saigon" },
-        // { name: "Istanbul" },
-        // { name: "Danang" },
-        // { name: "tokyo" },
-        // { name: "karachi" },
-        // { name: "seoul" },
-        // { name: "cairo" },
-        
+        { name: "London" },
+        { name: "Hanoi" },
+        { name: "Saigon" },
+        { name: "Istanbul" },
+        { name: "Danang" }
       ]
     };
   }
   static navigationOptions = {
     header: null
   };
-  
-
 
   render() {
     if (this.state.isLoading) {
@@ -49,7 +42,10 @@ export default class Home extends Component {
           data={this.state.cities}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("Detail", { data : item })}
+              style={styles.Touch_main}
+              onPress={() =>
+                this.props.navigation.navigate("Detail", { data: item })
+              }
             >
               <HomeItem cityName={item.name} />
             </TouchableOpacity>

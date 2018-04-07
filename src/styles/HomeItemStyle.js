@@ -1,23 +1,36 @@
 import React, {StyleSheet} from 'react-native'
 
 const styles = StyleSheet.create({
-    View_City: {
-        backgroundColor: "rgb(236,240,241)",
-        marginTop: 10,
-        marginLeft: 10,
-        marginRight: 10,
-        height: 100,
-        padding: 20,
-        borderRadius: 8,
+    View_main:{
+        flex: 1,
+        flexDirection: 'row',
+    },
+    child_view_left :{
+        flex: 3,
+        flexDirection: "row",
+        alignItems: 'flex-end',
+    },
+    text_city_name :{
+        fontSize: 20,
+    },
+    text_nation :{
+        fontSize: 10,
+    },
 
-        shadowColor: "rgb(79,195,247)",
-        shadowRadius: 3,
-        shadowOpacity: 1,
-        // elevation:8,
-        shadowOffset: {
-            width: 0,
-            height: 0
-        },
+    child_view_middle :{
+        alignItems: 'center',
+        flex: 2,
+        justifyContent: 'center',
+        flexDirection: 'row',
+    },
+    text_temp :{
+        fontSize: 20,
+    },
+
+
+    child_view_right :{
+        flex: 2,
+        alignItems: 'center',
     }
 });
 
