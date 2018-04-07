@@ -17,7 +17,7 @@ export default class HomeItem extends Component {
       url:
         "http://api.openweathermap.org/data/2.5/forecast?&APPID=b1759401ae8af65fcfc7b6f92363aa84&q=",
       cityName: this.props.cityName,
-      isLoading: true
+      isLoading: true,
     };
   }
 
@@ -97,6 +97,7 @@ export default class HomeItem extends Component {
     }
     return (
       <View style={styles.View_main}>
+
         <View style={styles.child_view_left}>
           <Text style={styles.text_city_name}>{this.state.cityName} </Text>
           <Text style={styles.text_nation}>{this.state.nation}</Text>
@@ -113,6 +114,7 @@ export default class HomeItem extends Component {
           </View>
           <Text style={styles.text_description}>{this.state.description}</Text>
         </View>
+
       </View>
     );
   }

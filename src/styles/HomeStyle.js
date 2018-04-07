@@ -6,6 +6,11 @@ const styles = StyleSheet.create({
         backgroundColor: "rgb(129,212,250)"
 
     },
+
+    Header_bar :{
+        flex : 0.08
+    },
+
     Touch_main:{
         flex: 1,
         backgroundColor: "rgb(33,150,243)",
