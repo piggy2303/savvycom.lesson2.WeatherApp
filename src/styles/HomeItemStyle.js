@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
   },
   text_temp_C:{
     fontSize: 20,
-    color: "rgb(187,222,251)"
+    color: "rgb(187,222,251)",
+    marginTop:5
   },
   text_description:{
     fontSize: 12,

@@ -4,11 +4,11 @@ const styles = StyleSheet.create({
     View_Main: {
         flex: 1,
         backgroundColor: "rgb(129,212,250)"
-
     },
 
     Header_bar :{
-        flex : 0.08
+        flex : 0.08,
+        backgroundColor: "rgb(63,81,181)",
     },
 
     Touch_main:{
@@ -22,14 +22,6 @@ const styles = StyleSheet.create({
         height: 80,
         padding: 10,
         borderRadius: 5,
-        shadowColor: "rgb(79,195,247)",
-        shadowRadius: 3,
-        shadowOpacity: 1,
-        // elevation:8,
-        shadowOffset: {
-            width: 0,
-            height: 0
-        },
     },
 });
 

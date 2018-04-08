@@ -59,7 +59,6 @@ export default class Home extends Component {
     return (
       <View style={styles.View_Main}>
         <View style={styles.Header_bar}>
-          <Text>{this.state.isreload}</Text>
           <HomeHeaderBar />
         </View>
         <PTRView onRefresh={this._refresh}>
