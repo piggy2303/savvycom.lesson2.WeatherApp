@@ -13,7 +13,8 @@ export default class DetailTop extends Component {
   render() {
     return (
       <View style={styles.View_main}>
-        <TouchableOpacity 
+        <TouchableOpacity
+            onPress={() => this.props.navigate(this.props.destination) }
           style={styles.TouchArrowBack}
           >
           <Text style={styles.ArrowBack}>←</Text>

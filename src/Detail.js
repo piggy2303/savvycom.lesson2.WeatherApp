@@ -60,14 +60,17 @@ export default class Detail extends Component {
             day1DesWeatherMain: responseJson.list[3].weather[0].description,
             //weather day 2
             day2IconWeatherMain: responseJson.list[11].weather[0].icon,
-            day2TempWeatherMain: parseInt(responseJson.list[11].main.temp - 273),
+            day2TempWeatherMain: parseInt(
+              responseJson.list[11].main.temp - 273
+            ),
             day2DesWeatherMain: responseJson.list[11].weather[0].description,
 
             //weather day 3
             day3IconWeatherMain: responseJson.list[15].weather[0].icon,
-            day3TempWeatherMain: parseInt(responseJson.list[15].main.temp - 273),
-            day3DesWeatherMain: responseJson.list[15].weather[0].description,
-
+            day3TempWeatherMain: parseInt(
+              responseJson.list[15].main.temp - 273
+            ),
+            day3DesWeatherMain: responseJson.list[15].weather[0].description
           },
           function() {}
         );
@@ -95,7 +98,11 @@ export default class Detail extends Component {
       >
         <View style={styles.View_Main}>
           <View style={styles.DetailTop}>
-            <DetailTop titleName={this.state.cityName} />
+            <DetailTop
+              titleName={this.state.cityName}
+              navigate={this.props.navigation.navigate}
+              destination="Home"
+            />
           </View>
           <View style={styles.DetailMain}>
             <DetailMain
@@ -111,11 +118,9 @@ export default class Detail extends Component {
               day1IconWeatherMain={this.state.day1IconWeatherMain}
               day1TempWeatherMain={this.state.day1TempWeatherMain}
               day1DesWeatherMain={this.state.day1DesWeatherMain}
-
               day2IconWeatherMain={this.state.day2IconWeatherMain}
               day2TempWeatherMain={this.state.day2TempWeatherMain}
               day2DesWeatherMain={this.state.day2DesWeatherMain}
-
               day3IconWeatherMain={this.state.day3IconWeatherMain}
               day3TempWeatherMain={this.state.day3TempWeatherMain}
               day3DesWeatherMain={this.state.day3DesWeatherMain}
