@@ -72,7 +72,9 @@ export default class Detail extends Component {
     return (
       <View style={styles.View_Main}>
         <View style={styles.DetailTop}>
-          <DetailTop />
+          <DetailTop 
+          titleName = "Hanoi"
+          />
         </View>
         <View style={styles.DetailMain}>
           <DetailMain  />

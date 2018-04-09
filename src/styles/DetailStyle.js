@@ -3,11 +3,11 @@ import React, {StyleSheet} from 'react-native'
 const styles = StyleSheet.create({
     View_Main: {
         flex: 1,
-        backgroundColor: "red"
+        // backgroundColor: "red"
     },
     DetailTop :{
         flex: 0.8,
-        backgroundColor: "blue"
+        // backgroundColor: "blue"
     },
     DetailMain :{
         flex: 6,
