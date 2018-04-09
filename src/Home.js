@@ -5,7 +5,9 @@ import {
   Button,
   FlatList,
   ActivityIndicator,
-  TouchableOpacity
+  TouchableOpacity,
+  ImageBackground,
+  Dimensions,
 } from "react-native";
 import PTRView from "react-native-pull-to-refresh";
 
@@ -57,6 +59,12 @@ export default class Home extends Component {
       );
     }
     return (
+      <ImageBackground 
+      style={{
+        width: Dimensions.get('window').width, 
+        height: Dimensions.get('window').height
+        }} 
+        source={require("../img/night.jpg")}>
       <View style={styles.View_Main}>
         <View style={styles.Header_bar}>
           <HomeHeaderBar />
@@ -78,6 +86,7 @@ export default class Home extends Component {
           />
         </PTRView>
       </View>
+      </ImageBackground>
     );
   }
 }

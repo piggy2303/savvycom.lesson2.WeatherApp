@@ -5,15 +5,23 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "rgb(30,136,229)",
+    // backgroundColor: "rgb(33,150,243)",
+    // opacity: 0.8,
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    borderRadius: 10,
   },
   ViewInside: {
-    // backgroundColor: "rgb(33,150,243)",
+    
+    // backgroundColor: "red",
+    
     flex: 1,
     width: 250,
-    marginTop: 50,
-    marginBottom: 90,
-    borderRadius: 10,
+    marginTop: 10,
+    marginBottom: 10,
+    borderRadius: 5,
     padding: 10,
   },
   Weather: {
@@ -28,8 +36,8 @@ const styles = StyleSheet.create({
     // backgroundColor: "red",
   },
   img_iconID: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
   },
 
   WeatherTemp: {

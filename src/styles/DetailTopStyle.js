@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     backgroundColor: "rgb(63,81,181)",
+    opacity: 0.8
   },
   TouchArrowBack: {
     flex: 1,

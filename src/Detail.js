@@ -29,6 +29,8 @@ export default class Detail extends Component {
     };
   }
 
+  getlink;
+
   componentDidMount() {
     const { params } = this.props.navigation.state;
     const cityNameOBJ = params ? params.data : null;
@@ -50,9 +52,22 @@ export default class Detail extends Component {
             tempWeatherMain: parseInt(responseJson.list[0].main.temp - 273),
             desWeatherMain: responseJson.list[0].weather[0].description,
             humidityWeatherMain: responseJson.list[0].main.humidity,
-            windWeatherMain: parseInt(responseJson.list[0].wind.speed)
+            windWeatherMain: parseInt(responseJson.list[0].wind.speed),
 
             //weather day 1
+            day1IconWeatherMain: responseJson.list[3].weather[0].icon,
+            day1TempWeatherMain: parseInt(responseJson.list[3].main.temp - 273),
+            day1DesWeatherMain: responseJson.list[3].weather[0].description,
+            //weather day 2
+            day2IconWeatherMain: responseJson.list[11].weather[0].icon,
+            day2TempWeatherMain: parseInt(responseJson.list[11].main.temp - 273),
+            day2DesWeatherMain: responseJson.list[11].weather[0].description,
+
+            //weather day 3
+            day3IconWeatherMain: responseJson.list[15].weather[0].icon,
+            day3TempWeatherMain: parseInt(responseJson.list[15].main.temp - 273),
+            day3DesWeatherMain: responseJson.list[15].weather[0].description,
+
           },
           function() {}
         );
@@ -71,7 +86,13 @@ export default class Detail extends Component {
       );
     }
     return (
-      // <ImageBackground style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height}} source={require("../img/if_weather/01d.png")}>
+      <ImageBackground
+        style={{
+          width: Dimensions.get("window").width,
+          height: Dimensions.get("window").height
+        }}
+        source={require("../img/night.jpg")}
+      >
         <View style={styles.View_Main}>
           <View style={styles.DetailTop}>
             <DetailTop titleName={this.state.cityName} />
@@ -86,10 +107,22 @@ export default class Detail extends Component {
             />
           </View>
           <View style={styles.DetailBottom}>
-            <DetailBottom />
+            <DetailBottom
+              day1IconWeatherMain={this.state.day1IconWeatherMain}
+              day1TempWeatherMain={this.state.day1TempWeatherMain}
+              day1DesWeatherMain={this.state.day1DesWeatherMain}
+
+              day2IconWeatherMain={this.state.day2IconWeatherMain}
+              day2TempWeatherMain={this.state.day2TempWeatherMain}
+              day2DesWeatherMain={this.state.day2DesWeatherMain}
+
+              day3IconWeatherMain={this.state.day3IconWeatherMain}
+              day3TempWeatherMain={this.state.day3TempWeatherMain}
+              day3DesWeatherMain={this.state.day3DesWeatherMain}
+            />
           </View>
         </View>
-      // </ImageBackground>
+      </ImageBackground>
     );
   }
 }
