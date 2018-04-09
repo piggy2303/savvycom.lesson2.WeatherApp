@@ -3,6 +3,7 @@ import { StackNavigator } from "react-navigation";
 
 import Home from "./Home";
 import Detail from "./Detail";
+import DetailTop from './component/DetailTop';
 
 export default StackNavigator(
     {
@@ -11,9 +12,12 @@ export default StackNavigator(
         },
         Detail: {
             screen: Detail
+        },
+        DetailTop :{
+            screen : DetailTop
         }
     },
     {
-        initialRouteName: "Detail"
+        initialRouteName: "Home"
     }
 );

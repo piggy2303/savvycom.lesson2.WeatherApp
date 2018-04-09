@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { View, Text, Button, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  ActivityIndicator,
+  ImageBackground,
+  Dimensions
+} from "react-native";
 
 import DetailTop from "./component/DetailTop";
 import DetailMain from "./component/DetailMain";
@@ -29,29 +36,23 @@ export default class Detail extends Component {
     let cityNameArry = cityNameOBJString.split('"');
     let cityName = cityNameArry[3];
 
-    // return fetch(this.state.url + cityName)
-    //   .then(response => response.json())
-    //   .then(responseJson => {
-    //     this.setState(
-    //       {
-    //         cityName: cityName,
-    //         isLoading: false,
-    //         weather: responseJson.list[0].main
-    //       },
-    //       function() {}
-    //     );
-    //   })
-    //   .catch(error => {
-    //     console.error(error);
-    //   });
-    return fetch(this.state.url + this.state.cityName)
+    return fetch(this.state.url + cityName)
       .then(response => response.json())
       .then(responseJson => {
         this.setState(
           {
             cityName: cityName,
             isLoading: false,
-            weather: responseJson.list[0].main
+            //weather: responseJson.list[0].main
+
+            //weather main
+            iconWeatherMain: responseJson.list[0].weather[0].icon,
+            tempWeatherMain: parseInt(responseJson.list[0].main.temp - 273),
+            desWeatherMain: responseJson.list[0].weather[0].description,
+            humidityWeatherMain: responseJson.list[0].main.humidity,
+            windWeatherMain: parseInt(responseJson.list[0].wind.speed)
+
+            //weather day 1
           },
           function() {}
         );
@@ -70,19 +71,25 @@ export default class Detail extends Component {
       );
     }
     return (
-      <View style={styles.View_Main}>
-        <View style={styles.DetailTop}>
-          <DetailTop 
-          titleName = "Hanoi"
-          />
+      // <ImageBackground style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height}} source={require("../img/if_weather/01d.png")}>
+        <View style={styles.View_Main}>
+          <View style={styles.DetailTop}>
+            <DetailTop titleName={this.state.cityName} />
+          </View>
+          <View style={styles.DetailMain}>
+            <DetailMain
+              iconWeatherMain={this.state.iconWeatherMain}
+              tempWeatherMain={this.state.tempWeatherMain}
+              desWeatherMain={this.state.desWeatherMain}
+              humidityWeatherMain={this.state.humidityWeatherMain}
+              windWeatherMain={this.state.windWeatherMain}
+            />
+          </View>
+          <View style={styles.DetailBottom}>
+            <DetailBottom />
+          </View>
         </View>
-        <View style={styles.DetailMain}>
-          <DetailMain  />
-        </View>
-        <View style={styles.DetailBottom}>
-          <DetailBottom  />
-        </View>
-      </View>
+      // </ImageBackground>
     );
   }
 }

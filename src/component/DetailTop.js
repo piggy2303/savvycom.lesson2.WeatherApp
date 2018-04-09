@@ -6,16 +6,20 @@ import styles from "../styles/DetailTopStyle";
 export default class DetailTop extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      titleName : this.props.titleName.toUpperCase()
+    };
   }
   render() {
     return (
       <View style={styles.View_main}>
-        <TouchableOpacity style={styles.TouchArrowBack}>
+        <TouchableOpacity 
+          style={styles.TouchArrowBack}
+          >
           <Text style={styles.ArrowBack}>←</Text>
         </TouchableOpacity>
         <View style={styles.ViewtitleName}>
-          <Text style={styles.TextTitleName}>{this.props.titleName}</Text>
+          <Text style={styles.TextTitleName}>{this.state.titleName}</Text>
         </View>
         <TouchableOpacity style={styles.loveBtn}>
           <Text style={styles.loveIcon}>♥</Text>
