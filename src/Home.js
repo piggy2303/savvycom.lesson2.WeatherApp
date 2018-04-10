@@ -25,6 +25,11 @@ export default class Home extends Component {
       { name: "cairo" },
       { name: "toronto" },
       { name: "London" },
+      { name: "Moscow" },
+      { name: "JAKARTA" },
+      { name: "ROME" },
+      { name: "PARIS" },
+      { name: "MADRID" },
       
     ]
     this.state = {
