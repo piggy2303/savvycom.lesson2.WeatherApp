@@ -8,14 +8,11 @@ import {
 } from "react-native";
 import styles from "../styles/HomeItemStyle";
 
-var link = require("../../img/if_weather/01d.png");
-
 export default class HomeItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url:
-        "http://api.openweathermap.org/data/2.5/forecast?&APPID=b1759401ae8af65fcfc7b6f92363aa84&q=",
+      url:"http://api.openweathermap.org/data/2.5/forecast?&APPID=bd5e378503939ddaee76f12ad7a97608&q=",
       cityName: this.props.cityName,
       isLoading: true,
     };
@@ -57,6 +54,7 @@ export default class HomeItem extends Component {
     } else {
       link = require("../../img/if_weather/10n.png");
     }
+    return link;
   }
 
   getDatafromAPI = () => {
@@ -65,6 +63,7 @@ export default class HomeItem extends Component {
       .then(responseJson => {
         this.setState(
           {
+            isLoading: false,
             cityName: responseJson.city.name.toUpperCase(),
             temp: parseInt(responseJson.list[0].main.temp - 273),
             nation: responseJson.city.country,
@@ -74,14 +73,14 @@ export default class HomeItem extends Component {
           function() {}
         );
       })
-      .then(() => {
-        this.getlink(this.state.iconID);
-      })
-      .then(() => {
-        this.setState({
-          isLoading: false
-        });
-      })
+      // .then(() => {
+      //   this.getlink(this.state.iconID);
+      // })
+      // .then(() => {
+      //   this.setState({
+      //     isLoading: false
+      //   });
+      // })
       .catch(error => {
         console.error(error);
       });
@@ -90,6 +89,9 @@ export default class HomeItem extends Component {
   componentDidMount() {
     this.getDatafromAPI();
   }
+  // componentWillUpdate(){
+  //   this.getDatafromAPI();
+  // }
 
   render() {
     if (this.state.isLoading) {
@@ -108,7 +110,7 @@ export default class HomeItem extends Component {
         </View>
 
         <View style={styles.child_view_middle}>
-          <Image style={styles.img_iconID} source={link} />
+          <Image style={styles.img_iconID} source={this.getlink(this.state.iconID)} />
         </View>
 
         <View style={styles.child_view_right_parent}>

@@ -22,8 +22,7 @@ export default class Detail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url:
-        "http://api.openweathermap.org/data/2.5/forecast?&APPID=b1759401ae8af65fcfc7b6f92363aa84&q=",
+      url:"http://api.openweathermap.org/data/2.5/forecast?&APPID=bd5e378503939ddaee76f12ad7a97608&q=",
       cityName: "Hanoi",
       isLoading: true
     };

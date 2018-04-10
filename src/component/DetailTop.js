@@ -7,9 +7,18 @@ export default class DetailTop extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      titleName : this.props.titleName.toUpperCase()
+      titleName : this.props.titleName.toUpperCase(),
+      isLove : false
     };
   }
+
+  onPressLove = ()=>{
+    this.setState({
+      isLove : !this.state.isLove
+    })
+  }
+  
+
   render() {
     return (
       <View style={styles.View_main}>
@@ -22,8 +31,11 @@ export default class DetailTop extends Component {
         <View style={styles.ViewtitleName}>
           <Text style={styles.TextTitleName}>{this.state.titleName}</Text>
         </View>
-        <TouchableOpacity style={styles.loveBtn}>
-          <Text style={styles.loveIcon}>♥</Text>
+        <TouchableOpacity 
+        style={styles.loveBtn}
+        onPress={this.onPressLove}
+        >
+          <Text style={ this.state.isLove ? styles.loveIconTrue:styles.loveIcon}>♥</Text>
         </TouchableOpacity>
       </View>
     );

@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   Dimensions,
+  AsyncStorage
 } from "react-native";
 import PTRView from "react-native-pull-to-refresh";
 
@@ -18,37 +19,67 @@ import HomeHeaderBar from "./component/HomeHeaderBar";
 export default class Home extends Component {
   constructor(props) {
     super(props);
+    const cities = [
+      { name: "singapore" },
+      { name: "tokyo" },
+      { name: "cairo" },
+      { name: "toronto" },
+      { name: "London" },
+      
+    ]
     this.state = {
+      isReloading : false,
       isLoading: false,
-      cities: [
-        { name: "singapore" },
-        { name: "tokyo" },
-        { name: "cairo" },
-        { name: "toronto" },
-        { name: "London" },
-        { name: "Hanoi" },
-        { name: "Saigon" },
-        { name: "Istanbul" },
-        { name: "Danang" },
-        { name: "London" },
-        { name: "Hanoi" },
-        { name: "Saigon" },
-        { name: "Istanbul" },
-        { name: "Danang" }
-      ]
+      cities: cities
     };
   }
   static navigationOptions = {
     header: null
   };
 
-  _refresh = () => {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve();
-      }, 1000);
+  copyState = () => {
+    const {cities} = this.state;
+    cities.push({name:"hanoi"});
+    // cities.pop();
+
+    this.setState({
+      isReloading:false,
+      cities : cities.slice(0)
     });
-  };
+  }
+
+  // async addCity (){
+  //   cities = this.state.cities.push({name: "hanoi"}).slice(0);
+
+  //   await AsyncStorage.setItem("cities", JSON.stringify(cities));
+
+  //   this.updateCities();
+  // }
+
+  // async updateCities(){
+  //   let response = await AsyncStorage.getItem("cities");
+
+  //   let citiess =await JSON.parse(response);
+
+  //   this.setState({
+  //     isReloading:false,
+  //     cities = citiess.slice(0)
+  //   })
+
+  // }
+  // componentDidUpdate(){
+  //   this.updateCities();
+  // }
+
+
+  handleRefesh =() =>{
+    this.setState({
+      isReloading : true,
+    },()=>{
+      // this.addCity();
+      this.copyState();
+    })
+  }
 
   render() {
     if (this.state.isLoading) {
@@ -69,8 +100,11 @@ export default class Home extends Component {
         <View style={styles.Header_bar}>
           <HomeHeaderBar />
         </View>
-        <PTRView onRefresh={this._refresh}>
+       
           <FlatList
+            style = {{flex:1, marginBottom: 10}}
+            refreshing = {this.state.isReloading}
+            onRefresh = {this.handleRefesh}
             data={this.state.cities}
             renderItem={({ item }) => (
               <TouchableOpacity
@@ -84,7 +118,7 @@ export default class Home extends Component {
             )}
             keyExtractor={(item, index) => index}
           />
-        </PTRView>
+        
       </View>
       </ImageBackground>
     );

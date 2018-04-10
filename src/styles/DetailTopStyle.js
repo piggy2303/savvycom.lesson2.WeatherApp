@@ -45,6 +45,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: "rgb(187,222,251)"
 
+  },
+  loveIconTrue:{
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: "rgb(245,0,87)"
   }
 });
 
