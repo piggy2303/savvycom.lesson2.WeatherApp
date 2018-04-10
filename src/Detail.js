@@ -31,18 +31,16 @@ export default class Detail extends Component {
   getlink;
 
   componentDidMount() {
-    const { params } = this.props.navigation.state;
-    const cityNameOBJ = params ? params.data : null;
-    let cityNameOBJString = JSON.stringify(cityNameOBJ);
-    let cityNameArry = cityNameOBJString.split('"');
-    let cityName = cityNameArry[3];
+    const {data} = this.props.navigation.state.params;
+    console.log(data);
 
+    const cityName = data.name;
     return fetch(this.state.url + cityName)
       .then(response => response.json())
       .then(responseJson => {
         this.setState(
           {
-            cityName: cityName,
+            cityName:cityName,
             isLoading: false,
             //weather: responseJson.list[0].main
 

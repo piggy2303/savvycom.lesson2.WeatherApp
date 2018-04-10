@@ -26,10 +26,10 @@ export default class Home extends Component {
       { name: "toronto" },
       { name: "London" },
       { name: "Moscow" },
-      { name: "JAKARTA" },
-      { name: "ROME" },
-      { name: "PARIS" },
-      { name: "MADRID" },
+      // { name: "JAKARTA" },
+      // { name: "ROME" },
+      // { name: "PARIS" },
+      // { name: "MADRID" },
       
     ]
     this.state = {
@@ -41,52 +41,94 @@ export default class Home extends Component {
   static navigationOptions = {
     header: null
   };
-
+  componentWillMount(){
+    console.log('componentWillMount');
+    AsyncStorage.getItem('storage',
+    (error,result)=>{
+      if(error){
+        console.log(error);
+      }
+      
+      console.log('componentWillMount',result);
+    }
+  )
+  }
   copyState = () => {
     const {cities} = this.state;
-    cities.push({name:"hanoi"});
-    // cities.pop();
+    let randomcity = Math.floor((Math.random() * 5) + 1)
+    if(randomcity == 1){
+      cities.push({name:"hanoi"});
+    }
+    else if(randomcity == 2){
+      cities.push({name:"JAKARTA"});
+    } else if(randomcity == 3){
+      cities.push({name:"ROME"});
+    } else if(randomcity == 4){
+      cities.push({name:"PARIS"});
+    } else if(randomcity == 5){
+      cities.push({name:"MADRID"});
+    }
+    // cities.push({name:"hanoi"});
+    // // cities.pop();
 
     this.setState({
       isReloading:false,
       cities : cities.slice(0)
     });
+    console.log(JSON.stringify(cities));
+    AsyncStorage.setItem('storage',
+    JSON.stringify(cities),
+    (err)=>{
+    console.log(err);
+  });
   }
 
-  // async addCity (){
-  //   cities = this.state.cities.push({name: "hanoi"}).slice(0);
+  async addCity (){
+    console.log(cities);
+    
+    cities = this.state.cities.push({name: "hanoi"}).slice(0);
 
-  //   await AsyncStorage.setItem("cities", JSON.stringify(cities));
+    await AsyncStorage.setItem("cities", JSON.stringify(cities));
+    console.log(cities);
 
-  //   this.updateCities();
-  // }
+    this.updateCities();
+  }
 
-  // async updateCities(){
-  //   let response = await AsyncStorage.getItem("cities");
+  async updateCities(){
+    let response = await AsyncStorage.getItem("cities");
 
-  //   let citiess =await JSON.parse(response);
+    let citiess =await JSON.parse(response);
 
-  //   this.setState({
-  //     isReloading:false,
-  //     cities = citiess.slice(0)
-  //   })
+    // this.setState({
+    //   isReloading:false,
+    //   cities = citiess.slice(0)
+    // })
 
-  // }
-  // componentDidUpdate(){
-  //   this.updateCities();
-  // }
 
+  }
+  componentDidUpdate(){
+    // this.updateCities();
+    AsyncStorage.getItem('storage',
+    (error,result)=>{
+      if(error){
+        console.log(error);
+      }
+      
+      console.log('componentWillMount',result);
+    
+  })}
+
+  // 
 
   handleRefesh =() =>{
     this.setState({
       isReloading : true,
-    },()=>{
-      // this.addCity();
-      this.copyState();
-    })
+    });
+    this.copyState();
   }
 
   render() {
+    console.log('render');
     if (this.state.isLoading) {
       return (
         <View style={{ flex: 1, padding: 20 }}>
@@ -121,7 +163,7 @@ export default class Home extends Component {
                 <HomeItem ref="HomeItem" cityName={item.name} />
               </TouchableOpacity>
             )}
-            keyExtractor={(item, index) => index}
+            keyExtractor={(item, index) => index.toString()}
           />
         
       </View>
