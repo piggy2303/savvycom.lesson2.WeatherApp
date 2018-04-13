@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
-import DetailBottom_Nextday from "./DetailBottom_Nextday";
+import { DetailBottomNextday } from "./DetailBottomNextday";
 import styles from "../styles/DetailBottomStyle";
 
 export default class DetailBottom extends Component {
   constructor(props) {
     super(props);
     this.state = {
+    };
+  }
+  componentDidMount() {
+    this.setState({
       day1IconWeatherMain: this.props.day1IconWeatherMain,
       day1TempWeatherMain: this.props.day1TempWeatherMain,
       day1DesWeatherMain: this.props.day1DesWeatherMain,
@@ -18,25 +22,25 @@ export default class DetailBottom extends Component {
 
       day3IconWeatherMain: this.props.day3IconWeatherMain,
       day3TempWeatherMain: this.props.day3TempWeatherMain,
-      day3DesWeatherMain: this.props.day3DesWeatherMain,
-    };
+      day3DesWeatherMain: this.props.day3DesWeatherMain
+    }),
   }
+
   render() {
     return (
       <View style={styles.ViewMain}>
-        <DetailBottom_Nextday
+        <DetailBottomNextday
           IconWeatherMain={this.state.day1IconWeatherMain}
           TempWeatherMain={this.state.day1TempWeatherMain}
           DesWeatherMain={this.state.day1DesWeatherMain}
-
         />
-        <DetailBottom_Nextday
+        <DetailBottomNextday
           IconWeatherMain={this.state.day2IconWeatherMain}
           TempWeatherMain={this.state.day2TempWeatherMain}
           DesWeatherMain={this.state.day2DesWeatherMain}
         />
 
-        <DetailBottom_Nextday
+        <DetailBottomNextday
           IconWeatherMain={this.state.day3IconWeatherMain}
           TempWeatherMain={this.state.day3TempWeatherMain}
           DesWeatherMain={this.state.day3DesWeatherMain}

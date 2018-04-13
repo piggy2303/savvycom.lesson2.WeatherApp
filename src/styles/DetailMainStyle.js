@@ -1,4 +1,4 @@
-import React, { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   ViewMain: {
@@ -14,9 +14,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   ViewInside: {
-    
     // backgroundColor: "red",
-    
+
     flex: 1,
     width: 250,
     marginTop: 10,
@@ -27,12 +26,12 @@ const styles = StyleSheet.create({
   Weather: {
     // backgroundColor: "blue",
     flex: 2.5,
-    flexDirection: "row"
+    flexDirection: "row",
   },
   WeatherIcon: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent:"center",
+    alignItems: "center",
+    justifyContent: "center",
     // backgroundColor: "red",
   },
   img_iconID: {
@@ -43,61 +42,58 @@ const styles = StyleSheet.create({
   WeatherTemp: {
     flex: 1,
     // backgroundColor: "yellow",
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: "center"
-
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
   },
-  TextWeatherTemp:{
+  TextWeatherTemp: {
     fontSize: 50,
-    color: "rgb(187,222,251)"
+    color: "rgb(187,222,251)",
   },
 
-  TextWeatherTempC:{
+  TextWeatherTempC: {
     fontSize: 30,
-    color: "rgb(187,222,251)"
+    color: "rgb(187,222,251)",
   },
-
 
   WeatherDes: {
     // backgroundColor: "white",
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }, 
+    alignItems: "center",
+    justifyContent: "center",
+  },
   TextWeatherDes: {
     // backgroundColor: "white",
     fontSize: 20,
-    color: "rgb(187,222,251)"
+    color: "rgb(187,222,251)",
   },
 
   WeatherInfo: {
     // backgroundColor: "yellow",
     flex: 1,
-    flexDirection: "row"
-
+    flexDirection: "row",
   },
   WeatherInfoHumid: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
 
     // backgroundColor: "red",
   },
   TextWeatherInfoHumid: {
     // backgroundColor: "white",
     fontSize: 15,
-    color: "rgb(187,222,251)"
+    color: "rgb(187,222,251)",
   },
 
   WeatherInfoWind: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
     // backgroundColor: "yellow",
   },
   TextWeatherInfoWind: {
     // backgroundColor: "white",
     fontSize: 15,
-    color: "rgb(187,222,251)"
+    color: "rgb(187,222,251)",
   },
 });
 

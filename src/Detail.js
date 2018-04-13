@@ -22,7 +22,8 @@ export default class Detail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url:"http://api.openweathermap.org/data/2.5/forecast?&APPID=bd5e378503939ddaee76f12ad7a97608&q=",
+      url:
+        "http://api.openweathermap.org/data/2.5/forecast?&APPID=bd5e378503939ddaee76f12ad7a97608&q=",
       cityName: "Hanoi",
       isLoading: true
     };
@@ -31,7 +32,7 @@ export default class Detail extends Component {
   getlink;
 
   componentDidMount() {
-    const {data} = this.props.navigation.state.params;
+    const { data } = this.props.navigation.state.params;
     console.log(data);
 
     const cityName = data.name;
@@ -40,7 +41,7 @@ export default class Detail extends Component {
       .then(responseJson => {
         this.setState(
           {
-            cityName:cityName,
+            cityName: cityName,
             isLoading: false,
             //weather: responseJson.list[0].main
 

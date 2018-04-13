@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Image, View, Text } from "react-native";
 
 import styles from "../styles/DetailBottom_NextdayStyle";
+
 export default class DetailBottomNextday extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,7 @@ export default class DetailBottomNextday extends Component {
     };
   }
 
-  getlink = id => {
+  getlink = (id) => {
     if (id == "01d") {
       link = require("../../img/if_weather/01d.png");
     } else if (id == "01n") {
@@ -50,7 +51,7 @@ export default class DetailBottomNextday extends Component {
     }
     return link;
   };
-
+  com
   render() {
     return (
       <View style={styles.ViewMain}>

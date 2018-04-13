@@ -13,11 +13,12 @@ export default class DetailMain extends Component {
       humidityWeatherMain: this.props.humidityWeatherMain,
       windWeatherMain: this.props.windWeatherMain
     };
-  }
+  };
 
-  getlink = id => {
+  function getlink (id) {
     if (id == "01d") {
-      link = require("../../img/if_weather/01d.png");
+      link = require("../../img/if_weather/01n.png");
+      console.log(link);
     } else if (id == "01n") {
       link = require("../../img/if_weather/01n.png");
     } else if (id == "02d") {

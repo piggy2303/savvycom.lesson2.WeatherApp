@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text,TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 
 import styles from "../styles/HomeHeaderBarStyle";
 
@@ -13,7 +13,7 @@ export default class HomeHeaderBar extends Component {
         <View style={styles.View_TouchAdd}>
           <TouchableOpacity style={styles.TouchAdd}>
             <Text style={styles.Addbtn}>+</Text>
-            </TouchableOpacity>
+          </TouchableOpacity>
         </View>
       </View>
     );
