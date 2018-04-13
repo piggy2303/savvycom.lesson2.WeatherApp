@@ -1,10 +1,11 @@
-{
+{   
     "extends": "airbnb",
     "rules": {
         "semi": ["error", "always"],
         "quotes": ["error", "double"],
         "no-underscore-dangle": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "react/forbid-prop-types": [1, { "forbid": ["any", "array"] }]
+        "react/prop-types": 0,
+        "react/prefer-stateless-function":0
     }
 }

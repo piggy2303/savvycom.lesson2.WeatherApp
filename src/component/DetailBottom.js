@@ -8,10 +8,6 @@ export default class DetailBottom extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    };
-  }
-  componentWillMount() {
-    this.setState({
       day1IconWeatherMain: this.props.day1IconWeatherMain,
       day1TempWeatherMain: this.props.day1TempWeatherMain,
       day1DesWeatherMain: this.props.day1DesWeatherMain,
@@ -23,8 +19,12 @@ export default class DetailBottom extends Component {
       day3IconWeatherMain: this.props.day3IconWeatherMain,
       day3TempWeatherMain: this.props.day3TempWeatherMain,
       day3DesWeatherMain: this.props.day3DesWeatherMain,
-    });
+    };
   }
+
+  // componentWillMount() {
+  //   this.getData();
+  // }
 
   render() {
     return (
@@ -49,3 +49,7 @@ export default class DetailBottom extends Component {
     );
   }
 }
+
+DetailBottom.propTypes = {
+  day1IconWeatherMain: PropTypes.string,
+};
